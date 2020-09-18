@@ -18,9 +18,22 @@ public class Task02 {
         Random rnd = new Random(seed);
 
         // TODO: Пишите код здесь
+        int[] array = new int[30];
         for (int i = 0; i < 30; i++) {
-            System.out.print(rnd.nextInt(51+70) - 70); // 0..120 - 70 = -70..+50
-            System.out.print(" ");
+            array[i] = rnd.nextInt(51 + 70) - 70; // 0..120 - 70 = -70..+50
         }
+        int min = array[0];
+        int max = array[0];
+        for (int i = 1; i < 30; i++) {
+            if (array[i] <= min) {
+                min = array[i];
+                continue;
+            }
+            if (array[i] >= max)
+            {
+                max = array[i];
+            }
+        }
+        System.out.print(min + " " + max);
     }
 }

@@ -19,5 +19,17 @@ public class Task03 {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }
+        int flag = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                System.out.print("No");
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0)
+        {
+            System.out.print("Yes");
+        }
     }
 }
