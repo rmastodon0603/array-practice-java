@@ -17,6 +17,28 @@ public class Task04 {
         int len = scanner.nextInt();
 
         // TODO: Пишите код здесь
+        int[] arr = new int[len];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int flag = 0;
+        for (int i = 1; i < arr.length; i++){
+            if (flag == 1) {
+                break;
+            }
+                else{
+                for (int j = 0; j < i; j++) {
+                    if (arr[i] == arr[j]) {
+                        flag = 1;
+                        System.out.print("No");
+                        break;
+                    }
+                }
+            }
+        }
+        if (flag == 0){
+            System.out.print("Yes");
+        }
 
     }
 }
