@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * Задание: Заполнить массив размерности n случайными цифрами
@@ -29,8 +30,33 @@ public class Task07 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        int[] arr;
         // TODO: Пишите код здесь
+        int[] arr = new int[len];
 
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rnd.nextInt(14 - 3) + 3;
+        }
+        Arrays.sort(arr); // тест не работает может из - за этого? - сортируем массив как в пайтоне
+
+        for (int i = 0; i < arr.length; i++) {
+            int stop = 0;
+            int flag = 1;
+            for (int j = 0; j < arr.length; j++) {
+                if (j != i) {
+                    if (arr[i] == arr[j]) {
+                        if (j < i) {
+                            stop++;
+                            break;
+                        } else {
+                            flag++;
+                        }
+                    }
+                }
+            }
+
+            if (stop == 0) {
+                System.out.println(arr[i] + " - " + flag + " раза");
+            }
+        }
     }
 }

@@ -24,22 +24,37 @@ public class Task05 {
         Random rnd = new Random(seed);
 
         // TODO: Пишите код здесь
-        int[] array = new int[10];
-        for (int i = 0; i < 10; i++) {
-            array[i] = rnd.nextInt(6 + 5) - 5; // 0..10 - 5 = -5..+5
-            System.out.println(array[i]);
+        int[] mas = new int[10];
+
+        for(int i=0; i< mas.length; i++)
+        {
+            mas[i] = rnd.nextInt(6+5) - 5;
         }
-        int kolvo_raz = 0;
-        for (int i = 0; i<10; i++) {
-            for (int j = 1; j < 10; j++) {
-                if (array[i] == array[j]) {
-                    kolvo_raz++;
+
+        for(int i = 0; i< mas.length - 1; i++)
+        {
+            int counter = 1;
+            for(int j = 0; j< mas.length; j++)
+            {
+                if(j!=i)
+                {
+                    if(mas[i] == mas[j])
+                    {
+                        if(j<i)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            counter++;
+                        }
+                    }
                 }
             }
-            if (kolvo_raz>1){
-                System.out.println(array[i] + " - " + kolvo_raz);
+            if(counter > 1)
+            {
+                System.out.println(mas[i] + " - " + counter + " раза");
             }
-            kolvo_raz=0;
         }
     }
 }

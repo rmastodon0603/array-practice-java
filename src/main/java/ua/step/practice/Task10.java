@@ -5,6 +5,7 @@ import java.time.ZoneOffset;
 import java.util.Random;
 import java.util.Scanner;
 
+
 /**
  * Задание: Заполнить массив размерности n случайными циф-
  * рами от 0 до 33. Найти элемент массива, который делится
@@ -29,8 +30,37 @@ public class Task10 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        int[] arr;
         // TODO: Пишите код здесь
+        int[] arr;
+        arr = new int[len];
 
+        System.out.print("Исходный массив [");
+        for(int i=0; i< arr.length; i++)
+        {
+            arr[i] = rnd.nextInt(34);
+            System.out.print(arr[i]);
+            if(i!= arr.length-1)
+            {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+
+        System.out.print("Индекс элемента ");
+        int flag = 0;
+        for(int i = 1; i < arr.length-1; i++)
+        {
+            if(arr[i-1] != 0 && arr[i+1] !=0 && arr[i] != 0)
+            {
+                if (arr[i] % arr[i - 1] == 0 && arr[i] % arr[i + 1] == 0) {
+                    System.out.print(i + " ");
+                    flag++;
+                }
+            }
+        }
+        if(flag == 0)
+        {
+            System.out.print(-1);
+        }
     }
 }

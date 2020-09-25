@@ -31,7 +31,24 @@ public class Task08 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        char[] arr;
         // TODO: Пишите код здесь
+        char[] arr; // Зачем создавать int массив, если можно сделать это через char?
+        arr = new char[len];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (char) (rnd.nextInt('z' - 'a' + 1) + 'a');
+        }
+        int[] meet = new int['z' - 'a' + 1];
+
+        for (char c : arr) { // Прогоняем каждый элемент массива ( как в Python in )
+            int idx = c - 'a';
+            meet[idx]++;
+        }
+
+        for (int i = 0; i < meet.length; i++) {
+            if (meet[i] > 3) {
+                System.out.printf("%c - %d %s\n", i + 'a', meet[i], meet[i] < 5 ? "раза" : "раз");
+            }
+        }
     }
 }

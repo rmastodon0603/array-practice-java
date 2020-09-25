@@ -31,5 +31,30 @@ public class Task06 {
         Random rnd = new Random(seed);
 
         // TODO: Пишите код здесь
+        int[] mas = new int[10];
+
+        for(int i=0; i< mas.length; i++)
+        {
+            mas[i] = rnd.nextInt(6+5)-5;
+        }
+
+        for(int i=0; i<mas.length; i++)
+        {
+            int flag = 1;
+            for(int j=0; j<mas.length; j++)
+            {
+                if(i!=j)
+                {
+                    if(mas[i]!=mas[j])
+                    {
+                        flag++;
+                    }
+                }
+            }
+            if(flag == mas.length)
+            {
+                System.out.println(mas[i] + " -> " + i + " индекс");
+            }
+        }
     }
 }

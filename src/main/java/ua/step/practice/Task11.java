@@ -37,8 +37,45 @@ public class Task11 {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
 
-        int[] arr;
         // TODO: Пишите код здесь
-
+        int[] arr;
+        arr = new int[n];
+        System.out.print("Исходный массив [");
+        for(int i=0; i< arr.length; i++)
+        {
+            arr[i] = rnd.nextInt(101);
+            System.out.print(arr[i]);
+            if(i!= arr.length-1)
+            {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]"); // Дальше идём выводить результат, но?, с тестом что - то не так?
+        System.out.print("Результат\n"+ "[");
+        int[] mas = new int[m];
+        int k =0;
+        for(int i=0; i< arr.length; i++)
+        {
+            mas[k] = arr[i];
+            System.out.print(mas[k]);
+            k++;
+            if((i+1)%m == 0)
+            {
+                System.out.println("]");
+                if(i!= arr.length-1)
+                {
+                    System.out.print("[");
+                }
+                k = 0;
+            }
+            else if ((i+1) % m != 0 && i != arr.length - 1)
+            {
+                System.out.print(", ");
+            }
+            else
+            {
+                System.out.print("]");
+            }
+        }
     }
 }

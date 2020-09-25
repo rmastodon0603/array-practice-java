@@ -28,9 +28,36 @@ public class Task09 {
         System.out.print("Введите размер массива: ");
         int len = scanner.nextInt();
 
-        int[] arr;
         // TODO: Пишите код здесь
+        int[] arr;
+        arr = new int[len];
 
+        System.out.print("Исходный массив [");
+        for(int i=0; i< arr.length; i++)
+        {
+            arr[i] = rnd.nextInt(len+3)-2;
+            System.out.print(arr[i]);
+            if(i!= arr.length-1)
+            {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
 
+        System.out.print("Результат [");
+        for(int i=0; i< arr.length; i++)
+        {
+            if(arr[i]<0)
+            {
+                arr[i] = arr[i]*arr[i];
+            }
+            System.out.print(arr[i]);
+
+            if(i!= arr.length-1)
+            {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
     }
 }
